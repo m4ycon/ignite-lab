@@ -6,7 +6,6 @@ export default {
   title: 'Components/TextInput',
   component: TextInput.Root,
   args: {
-    placeholder: 'Lorem ipsum',
     children: [
       <TextInput.Icon>
         <Envelope size={24} />
@@ -20,3 +19,9 @@ export default {
 } as Meta<TextInputRootProps>
 
 export const Default: StoryObj<TextInputRootProps> = {}
+
+export const WithoutIcon: StoryObj<TextInputRootProps> = {
+  args: {
+    children: <TextInput.Input placeholder="Type something here" />,
+  },
+}

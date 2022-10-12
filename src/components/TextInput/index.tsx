@@ -1,5 +1,4 @@
 import { Slot } from '@radix-ui/react-slot'
-import { clsx } from 'clsx'
 import { InputHTMLAttributes, ReactNode } from 'react'
 
 export type TextInputRootProps = {
@@ -10,7 +9,7 @@ const TextInputRoot = ({ children }: TextInputRootProps) => {
   return (
     <div
       className={
-        'flex items-center gap-3 py-4 px-3 bg-gray-800 rounded focus-within:ring-2 ring-cyan-300'
+        'flex items-center gap-3 h-12 py-4 px-3 bg-gray-800 rounded focus-within:ring-2 ring-cyan-300'
       }
     >
       {children}
