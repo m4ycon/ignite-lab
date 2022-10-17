@@ -6,12 +6,18 @@ import { Heading } from '../../components/Heading'
 import { Text } from '../../components/Text'
 import { TextInput } from '../../components/TextInput'
 import { ReactLogo } from '../../Logo'
+import axios from 'axios'
 
 export const SignInPage = () => {
   const [isUserSignedIn, setIsUserSignedIn] = useState(false)
 
-  const handleSignIn = (e: FormEvent) => {
+  const handleSignIn = async (e: FormEvent) => {
     e.preventDefault()
+
+    await axios.post('/sessions', {
+      email: 'email@email.com',
+      password: '123456',
+    })
 
     setIsUserSignedIn(true)
   }

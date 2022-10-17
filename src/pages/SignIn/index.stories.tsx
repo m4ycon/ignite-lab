@@ -1,6 +1,7 @@
 import { StoryObj } from '@storybook/react'
 import { within, userEvent, waitFor } from '@storybook/testing-library'
 import { expect } from '@storybook/jest'
+import { rest } from 'msw'
 import { SignInPage } from '.'
 
 export default {
@@ -8,6 +9,19 @@ export default {
   component: SignInPage,
   args: {},
   argTypes: {},
+  parameters: {
+    msw: {
+      handlers: [
+        rest.post('/sessions', (req, res, ctx) => {
+          return res(
+            ctx.json({
+              message: 'Login realizado!',
+            })
+          )
+        }),
+      ],
+    },
+  },
 }
 
 export const Default: StoryObj<{}> = {
